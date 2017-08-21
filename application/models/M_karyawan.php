@@ -22,5 +22,14 @@ class M_karyawan extends CI_Model {
 	function upload_database($data){
 		$this->db->insert("tbl_karyawan",$data);
 	}
-	
+
+	function delete_karyawan($id){
+		$this->db->where('id', $id);
+		return $this->db->delete('tbl_karyawan');
+	}
+
+	function edit_karyawan($where, $data){
+		$this->db->where('id', $where);
+		return $this->db->update('tbl_karyawan', $data);
+	}
 }

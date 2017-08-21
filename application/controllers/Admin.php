@@ -71,7 +71,8 @@ class Admin extends CI_Controller {
 			$highestRow = $sheet->getHighestRow();
 			$highestColumn = $sheet->getHighestColumn();
 			$banyakUpload = 0;
-			for ($row = 2; $row <= $highestRow; $row++){                  //  Read a row of data into an array
+			for ($row = 2; $row <= $highestRow; $row++){                  
+				//Read a row of data into an array
 				$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
 
 				//Sesuaikan sama nama kolom tabel di database
@@ -176,4 +177,57 @@ class Admin extends CI_Controller {
 		return $query->result();
 	}
 
+
+	public function hapus_karyawan($id){
+		$hapus = $this->M_karyawan->delete_karyawan($id);
+		if($hapus){
+			$this->M_update->update_database(date('Y-m-d'));
+			echo "<script>
+					alert('Berhasil menghapus data');
+					window.location.href='http://localhost/jasamarga/index.php/admin/home';
+				</script>";
+		}
+	}
+
+	public function update_karyawan(){
+		$id = $this->input->post("edit_id");
+		$npp = $this->input->post("edit_npp");
+		$nama = $this->input->post("edit_name");
+		$grade = $this->input->post("edit_grade");
+		$tgl_tugas =  \PHPExcel_Style_NumberFormat::toFormattedString($this->input->post("edit_tgl_tugas"), 'YYYY-MM-DD');
+		$job_name = $this->input->post("edit_job_name");
+		$position_name = $this->input->post("edit_pos_name");
+		$org_name = $this->input->post("edit_org_name");
+		$kel_jabatan = $this->input->post("edit_kel_jabatan");
+		$tempat_lahir = $this->input->post("edit_tempat_lahir");
+		$tgl_lahir = \PHPExcel_Style_NumberFormat::toFormattedString($this->input->post("edit_tgl_lahir"), 'YYYY-MM-DD');
+		$sex = $this->input->post("edit_gender");
+
+		$data = array(
+			'npp' => $npp,
+			'nama' => $nama,
+			'grade' => $grade,
+			'tgl_tugas' => $tgl_tugas,
+			'job_name' => $job_name,
+			'position_name' => $position_name,
+			'org_name' => $org_name,
+			'tempat_lahir' => $tempat_lahir,
+			'kel_jabatan' => $kel_jabatan,
+			'tgl_lahir' => $tgl_lahir,
+			'sex' => $sex
+		);
+
+		$ok = $this->M_karyawan->edit_karyawan($id, $data);
+		if($ok){
+			$this->M_update->update_database(date('Y-m-d'));
+			echo "<script>
+				alert('Update data berhasil');
+				window.location.href='http://localhost/jasamarga/index.php/admin/';
+			</script>";
+		} else {
+			echo "<script>
+					alert('Update data gagal');
+				</script>";
+		}
+	}
 }
