@@ -27,7 +27,8 @@
 						            </div>
 						        </form>
 						        <br>
-						        Note: Uploaded file must have .xls or .xlsx extention
+						        <br>
+						        Jika belum memiliki format excel, download <a href="<?php echo base_url('assets/excel/format_file.xlsx'); ?>">di sini</a>
 								<!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->
 						</div><!-- /.row -->
