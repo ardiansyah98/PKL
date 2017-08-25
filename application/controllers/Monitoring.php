@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class monitoring extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();
@@ -12,34 +12,78 @@ class Admin extends CI_Controller {
 		if($this->session->userdata('status')!='login'){
 			redirect(base_url('index.php/login'));
 		} else {
-			$data['title'] = "Empowerment";
-			$data['subtitle'] = "Admin";
-			$data['view_isi'] = "v_home";
+
+			if($this->session->userdata('jenis')=='monitoring'){
+				$data['title'] = "Empowerment";
+				$data['subtitle'] = "Admin";
+				$data['view_sidebar'] = "layout/sidebar_monitoring";
+				$data['view_isi'] = "monitoring/v_home";	
+				$data['result'] = $this->M_update->get_last();
+				$this->load->view('layout/template',$data);
+			} else {
+				redirect(base_url('index.php/surat'));
+			}
 			
-			
-			$data['result'] = $this->M_update->get_last();
-			$this->load->view('layout/template',$data);
 		}
 	}
 
 	public function home(){
-			$data['title'] = "Empowerment";
-			$data['subtitle'] = "Admin";
-			$data['view_isi'] = "v_home";
-
-
-			$data['result'] = $this->M_update->get_last();	
-
-			$this->load->view('layout/template',$data);
+		if($this->session->userdata('status')!='login'){
+			redirect(base_url('index.php/login'));
+		} else {
+			if($this->session->userdata('jenis')=='monitoring'){
+				$data['title'] = "Empowerment";
+				$data['subtitle'] = "Admin";
+				$data['view_sidebar'] = "layout/sidebar_monitoring";
+				$data['view_isi'] = "monitoring/v_home";
+				$data['result'] = $this->M_update->get_last();	
+				$this->load->view('layout/template',$data);
+			} else {
+				redirect(base_url('index.php/surat'));
+			}
+			
+		}
+			
 	}
 
 	public function upload(){
-			$data['title'] = "Empowerment";
-			$data['subtitle'] = "Admin";
-			$data['view_isi'] = "v_upload";
-						
-			$this->load->view('layout/template',$data);
+		if($this->session->userdata('status')!='login'){
+			redirect(base_url('index.php/login'));
+		} else {
+
+			if($this->session->userdata('jenis')=='monitoring'){
+				$data['title'] = "Empowerment";
+				$data['subtitle'] = "Admin";
+				$data['view_sidebar'] = "layout/sidebar_monitoring";
+				$data['view_isi'] = "monitoring/v_upload";		
+				$this->load->view('layout/template',$data);
+			} else {
+				redirect(base_url('index.php/surat'));
+			}
+			
+		}		
 	}	
+
+	public function data_karyawan(){
+		if($this->session->userdata('status')!='login'){
+			redirect(base_url('index.php/login'));
+		} else {
+
+			if($this->session->userdata('jenis')=='monitoring'){
+				$data['title'] = "Empowerment";
+				$data['subtitle'] = "Admin";
+				$data['view_sidebar'] = "layout/sidebar_monitoring";
+				$data['view_isi'] = "monitoring/v_karyawan";			
+				$data['result'] = $this->M_karyawan->get_karyawan();
+				$this->load->view('layout/template',$data);
+			} else {
+				redirect(base_url('index.php/surat'));
+			}
+			
+		}
+
+		
+	}
 
 	public function upload_db(){
 		if ($_FILES['file']['name']) {
@@ -93,7 +137,7 @@ class Admin extends CI_Controller {
 				if($rowData[0][0] == NULL && $rowData[0][1] == NULL && $rowData[0][2] == NULL && $rowData[0][3] == NULL && $rowData[0][4] == NULL && $rowData[0][5] == NULL && $rowData[0][6] == NULL && $rowData[0][7] == NULL && $rowData[0][8] == NULL && $rowData[0][9] == NULL && $rowData[0][10] == NULL){
 					echo "<script>
 							alert('$banyakUpload data sukses di upload');
-							window.location.href='http://localhost/jasamarga/index.php/admin/upload';
+							window.location.href='http://localhost/jasamarga/index.php/monitoring/upload';
 						</script>";
 				}
 
@@ -112,32 +156,16 @@ class Admin extends CI_Controller {
 			$this->M_update->update_database(date('Y-m-d'));
 			echo "<script>
 					alert('$banyakUpload data sukses di upload');
-					window.location.href='http://localhost/jasamarga/index.php/admin/upload';
+					window.location.href='http://localhost/jasamarga/index.php/monitoring/upload';
 				</script>";
 		} else {
 			echo "<script>
 					alert('Pilih file yang akan di upload!');
-					window.location.href='http://localhost/jasamarga/index.php/admin/upload';
+					window.location.href='http://localhost/jasamarga/index.php/monitoring/upload';
 				</script>";
 		}
 	}
 
-	public function data_karyawan(){
-		$data['title'] = "Empowerment";
-		$data['subtitle'] = "Admin";
-		$data['view_isi'] = "v_karyawan";
-					
-		$data['result'] = $this->M_karyawan->get_karyawan();
-		$this->load->view('layout/template',$data);
-	}
-
-	public function search_npp(){
-		$data['title'] = "Empowerment";
-		$data['subtitle'] = "Admin";
-		$data['view_isi'] = "v_search_npp";
-					
-		$this->load->view('layout/template',$data);
-	}
 
 	public function change_password(){
 		$username = $this->session->userdata('nama');
@@ -152,26 +180,26 @@ class Admin extends CI_Controller {
 				if($pb == $pl){
 					echo "<script>
 						alert('Password tidak berubah');
-						window.location.href='http://localhost/jasamarga/index.php/admin/home';
+						window.location.href='http://localhost/jasamarga/index.php/monitoring/home';
 					</script>";	
 				} else {
 					$q = $this->db->query("UPDATE tbl_admin SET password = '".md5($pb)."' WHERE username = '".$username."'");
 					echo "<script>
 						alert('Password berhasil diubah');
-						window.location.href='http://localhost/jasamarga/index.php/admin/home';
+						window.location.href='http://localhost/jasamarga/index.php/monitoring/home';
 					</script>";
 				}
 				
 			} else {
 				echo "<script>
 					alert('Konfirmasi password baru salah');
-					window.location.href='http://localhost/jasamarga/index.php/admin/home';
+					window.location.href='http://localhost/jasamarga/index.php/monitoring/home';
 				</script>";
 			}
 		} else { 
 			echo "<script>
 					alert('Password lama salah');
-					window.location.href='http://localhost/jasamarga/index.php/admin/home';
+					window.location.href='http://localhost/jasamarga/index.php/monitoring/home';
 				</script>";
 		}
 		return $query->result();
@@ -184,7 +212,7 @@ class Admin extends CI_Controller {
 			$this->M_update->update_database(date('Y-m-d'));
 			echo "<script>
 					alert('Berhasil menghapus data');
-					window.location.href='http://localhost/jasamarga/index.php/admin/home';
+					window.location.href='http://localhost/jasamarga/index.php/monitoring/home';
 				</script>";
 		}
 	}
@@ -222,7 +250,7 @@ class Admin extends CI_Controller {
 			$this->M_update->update_database(date('Y-m-d'));
 			echo "<script>
 				alert('Update data berhasil');
-				window.location.href='http://localhost/jasamarga/index.php/admin/';
+				window.location.href='http://localhost/jasamarga/index.php/monitoring/';
 			</script>";
 		} else {
 			echo "<script>

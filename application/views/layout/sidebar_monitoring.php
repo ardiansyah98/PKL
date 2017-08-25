@@ -6,7 +6,7 @@
 
 				<ul class="nav nav-list">
 					<li class="">
-						<a href="<?php echo base_url();?>index.php/admin/home">
+						<a href="<?php echo base_url();?>index.php/monitoring/home">
 							<i class="menu-icon fa fa-home"></i>
 							<span class="menu-text"> Home </span>
 						</a>
@@ -15,7 +15,7 @@
 					</li>
 
 					<li class="">
-						<a href="<?php echo base_url();?>index.php/admin/data_karyawan"> <!-- class="dropdown-toggle">-->
+						<a href="<?php echo base_url();?>index.php/monitoring/data_karyawan"> <!-- class="dropdown-toggle">-->
 							<i class="menu-icon fa fa-desktop"></i>
 							<span class="menu-text">
 								Data Karyawan
@@ -57,7 +57,7 @@
 					</li>
 
 					<li class="">
-						<a href="<?php echo base_url();?>index.php/admin/upload">
+						<a href="<?php echo base_url();?>index.php/monitoring/upload">
 							<i class="menu-icon fa fa-upload"></i>
 							<span class="menu-text"> Upload Data</span>
 						</a>

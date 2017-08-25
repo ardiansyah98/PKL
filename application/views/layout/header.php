@@ -61,9 +61,10 @@
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 							<h3 class="smaller lighter blue no-margin">Ganti Password</h3>
 						</div>
-						<form action="<?php echo base_url('index.php/admin/change_password'); ?>" method="post">
+						<form action="<?php echo base_url('index.php/monitoring/change_password'); ?>" method="post">
 							<div class="modal-body">
-								<table style="width:100%">
+								<center>
+								<table style="width:90%">
 									<tr>
 										<td style="width:35%; margin-right: 3%">Password Lama</td>
 										<td style="width:65%">
@@ -83,6 +84,7 @@
 										<td><input style="width:100%" type="password" placeholder="Konfirmasi Password Baru" name="konfirmasi_password_baru"></td>
 									</tr>
 								</table>
+								</center>
 							</div>
 
 							<div class="modal-footer">

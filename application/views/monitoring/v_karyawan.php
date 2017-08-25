@@ -68,28 +68,15 @@
 											      		</td>
 											      		<td>
 											      		<center>
-	<button class="btn btn-success"  data-toggle="modal" data-target="#modalEdit">
+	<button class="btn btn-success"  data-toggle="modal" data-target="#modalEdit<?php echo $res->id;?>">
         <span class="glyphicon glyphicon-pencil"></span>
     </button>
 
-    <button class="btn btn-danger" data-toggle="modal" data-target="#modalHapus">
+    <button class="btn btn-danger" data-toggle="modal" data-target="#modalHapus<?php echo $res->id;?>">
        <span class="glyphicon glyphicon-trash"></span>        
     </button>
     </center>
-											      		</td>
-											      </tr>
-											      <?php }; ?>
-										</tbody>
-									</table>
-								<!-- PAGE CONTENT ENDS -->
-							</div><!-- /.col -->
-						</div><!-- /.row -->
-					</div><!-- /.page-content -->
-				</div>
-			</div><!-- /.main-content -->
-
-
-  <div class="modal fade" id="modalHapus" role="dialog">
+    <div class="modal fade" id="modalHapus<?php echo $res->id;?>" role="dialog">
     <div class="modal-dialog" style="max-width: 400px;">
       <div class="modal-content">
         <div class="modal-header">
@@ -98,7 +85,7 @@
         </div>
         <div class="modal-body">
           <center>
-	          <a href="<?php echo 'http://localhost/jasamarga/index.php/admin/hapus_karyawan/'.$res->id?>" type="button" class="btn btn-primary" style="width:100px">Ya</a> &nbsp;&nbsp;
+	          <a href="<?php echo 'http://localhost/jasamarga/index.php/monitoring/hapus_karyawan/'.$res->id?>" type="button" class="btn btn-primary" style="width:100px">Ya</a> &nbsp;&nbsp;
 	          <a type="button" class="btn btn-primary" data-dismiss="modal" style="width:100px;">Tidak</a>
           </center>
         </div>
@@ -107,14 +94,14 @@
   </div>
 
 
-  <div class="modal fade" id="modalEdit" role="dialog">
+  <div class="modal fade" id="modalEdit<?php echo $res->id;?>" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Edit Data</h4>
         </div>
-        <form action="<?php echo base_url();?>index.php/admin/update_karyawan" method="post">
+        <form action="<?php echo base_url();?>index.php/monitoring/update_karyawan" method="post">
 	        <div class="modal-body">
 		         	<table id="tableEdit" border="0" style="width: 94%; margin-left: 3%">
 		         		<tr>
@@ -194,3 +181,18 @@
       </div>
     </div>
   </div>
+											      		</td>
+											      </tr>
+
+											      <?php }; ?>
+										</tbody>
+									</table>
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+
+
+  

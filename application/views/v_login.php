@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			width:300px;
 			height: auto;
 			margin: auto;
-			margin-top: 5%;
+			margin-top: 4%;
 		}
 
 		.avatar {
@@ -69,6 +69,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			font-size: 18px;	
 			cursor:pointer;
 		}
+
+		select {
+			width: 100%;
+			border-radius: 4px;
+			border:none;
+			margin-top: 10px;
+			padding: 10px;
+			font-size: 14px;
+		}
 	</style>
 </head>
 <body>
@@ -82,7 +91,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<i></i>
 			</div>
 			<input type="password" placeholder="Password" name="password" required>
-	
+			<select name="jenis">
+				<option value="pilih">Pilih Jenis</option>
+				<option value="monitoring">Monitoring Karyawan</option>
+				<option value="surat">Surat Keputusan</option>
+			</select>
 			<button type="submit">Login</button>
 
 		</form>

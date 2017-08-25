@@ -181,7 +181,7 @@
 			</script>
 
 			
-			<?php $this->load->view('layout/sidebar'); ?>
+			<?php $this->load->view($view_sidebar); ?>
 
 			<?php $this->load->view($view_isi); ?>
 

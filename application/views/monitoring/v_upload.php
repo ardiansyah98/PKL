@@ -14,7 +14,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
-								<form style="margin-top:3%;" action="<?php echo base_url(); ?>index.php/admin/upload_db" method="post" enctype="multipart/form-data">
+								<form style="margin-top:3%;" action="<?php echo base_url(); ?>index.php/monitoring/upload_db" method="post" enctype="multipart/form-data">
 						            <div class="form-group has-feedback">
 						              <label for="file">Upload File</label>
 						              <input type="file" name="file">
