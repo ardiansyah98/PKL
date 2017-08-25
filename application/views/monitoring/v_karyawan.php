@@ -127,7 +127,7 @@
 		         		<tr>
 		         			<td >Tanggal Tugas</td>
 		         			<td >:</td>
-		         			<td ><input name="edit_tgl_tugas" type="date"  style="width:50%" value=<?= $res->tgl_tugas ?> ></td>
+		         			<td ><input name="edit_tgl_tugas" type="date"  style="margin-left:1.1%; width:50%" value=<?= $res->tgl_tugas ?> ></td>
 		         		</tr>
 		         		<tr>
 		         			<td >Job Name</td>
@@ -157,15 +157,15 @@
 		         		<tr>
 		         			<td >Tanggal Lahir</td>
 		         			<td >:</td>
-		         			<td ><input name="edit_tgl_lahir" type="date" style="width:50%" value=<?= $res->tgl_lahir ?> ></td>
+		         			<td ><input name="edit_tgl_lahir" type="date" style="margin-left:1.1%;width:50%" value=<?= $res->tgl_lahir ?> ></td>
 		         		</tr>
 		         		<tr>
 		         			<td >Jenis Kelamin</td>
 		         			<td >:</td>
 		         			<td >
 		         				<select style="width:50%" name="edit_gender">
-		         					<option value="M">Laki-laki</option>
-		         					<option value="F">Perempuan</option>
+		         					<option <?php if($res->sex == 'M') echo 'selected'; else echo ''; ?> value="M">Laki-laki</option>
+		         					<option <?php if($res->sex == 'F') echo 'selected'; else echo ''; ?> value="F">Perempuan</option>
 		         				</select>
 		         			</td>
 		         		</tr>
