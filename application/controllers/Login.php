@@ -14,7 +14,7 @@ class Login extends CI_Controller {
 			if($this->session->userdata('jenis')=='monitoring')
 				redirect(base_url('index.php/monitoring'));
 			else
-				redirect(base_url('index.php/surat'));
+				redirect(base_url('index.php/anggaran'));
 		} else {
 			$this->load->view('v_login');
 		}
@@ -49,7 +49,7 @@ class Login extends CI_Controller {
 				if($jenis=='monitoring')
 					redirect(base_url('index.php/monitoring'));
 				else
-					redirect(base_url('index.php/surat'));
+					redirect(base_url('index.php/anggaran'));
 			} else {
 				echo "<script>
 					alert('Username dan password salah!');

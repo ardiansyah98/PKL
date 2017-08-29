@@ -231,6 +231,46 @@
 		<!-- ace scripts -->
 		<script src="<?php echo base_url(); ?>assets/js/ace-elements.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/ace.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url('/assets/highcharts/highcharts.js'); ?>"></script>
+		<script type="text/javascript" src="<?php echo base_url('/assets/highcharts/modules/exporting.js'); ?>"></script>
+		<script type="text/javascript" src="<?php echo base_url('/assets/highcharts/themes/grid.js'); ?>"></script>
+		<script type="text/javascript">
+		jQuery(function(){
+		    new Highcharts.Chart({
+		        chart: {
+		            renderTo: 'chart',
+		            type: 'line',
+		        },
+		        title: {
+		            text: 'Statistik Penggunaan Anggaran Tahun <?php echo $thn_sekarang[0] ?>',
+		            x: -20
+		        },
+		        subtitle: {
+		            text: 'Empowerment',
+		            x: -20
+		        },
+		        xAxis: {
+		            categories: <?php echo json_encode($bulan); ?>,
+	              labels: {
+	                //enabled: false // disable labels
+	                step: 1
+	              }
+		        },
+		        yAxis: {
+		            title: {
+		                text: 'Jumlah Penggunaan'
+		            },
+	              min: 0
+		        },
+		        series: [
+	            {
+		            name: 'Penggunaan',
+		            data: <?php echo json_encode($total_penggunaan); ?>
+	            }
+	            ]
+	        });
+	      });
+		</script>
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
@@ -246,6 +286,17 @@
 			   		});
 			 });
 
+			$(document).ready(function() {
+					var myTable = $('.table_detail').DataTable({
+						"sScrollX": "100%",
+						"sScrollXInner": "110%"
+			   		});
+			 });
+
+			$(document).ready(function() {
+					var myTable = $('.table_modal').DataTable({
+			   		});
+			 });
 		</script>
 
 		<script src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.min.js"></script>

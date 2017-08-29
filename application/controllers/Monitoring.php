@@ -21,7 +21,7 @@ class monitoring extends CI_Controller {
 				$data['result'] = $this->M_update->get_last();
 				$this->load->view('layout/template',$data);
 			} else {
-				redirect(base_url('index.php/surat'));
+				redirect(base_url('index.php/anggaran'));
 			}
 			
 		}
@@ -39,7 +39,7 @@ class monitoring extends CI_Controller {
 				$data['result'] = $this->M_update->get_last();	
 				$this->load->view('layout/template',$data);
 			} else {
-				redirect(base_url('index.php/surat'));
+				redirect(base_url('index.php/anggaran'));
 			}
 			
 		}
@@ -58,7 +58,7 @@ class monitoring extends CI_Controller {
 				$data['view_isi'] = "monitoring/v_upload";		
 				$this->load->view('layout/template',$data);
 			} else {
-				redirect(base_url('index.php/surat'));
+				redirect(base_url('index.php/anggaran'));
 			}
 			
 		}		
@@ -77,7 +77,7 @@ class monitoring extends CI_Controller {
 				$data['result'] = $this->M_karyawan->get_karyawan();
 				$this->load->view('layout/template',$data);
 			} else {
-				redirect(base_url('index.php/surat'));
+				redirect(base_url('index.php/anggaran'));
 			}
 			
 		}

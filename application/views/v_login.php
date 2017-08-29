@@ -94,7 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<select name="jenis">
 				<option value="pilih">Pilih Jenis</option>
 				<option value="monitoring">Monitoring Karyawan</option>
-				<option value="surat">Surat Keputusan</option>
+				<option value="anggaran">Monitoring Anggaran</option>
 			</select>
 			<button type="submit">Login</button>
 
