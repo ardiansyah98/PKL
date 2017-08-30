@@ -234,43 +234,11 @@
 		<script type="text/javascript" src="<?php echo base_url('/assets/highcharts/highcharts.js'); ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url('/assets/highcharts/modules/exporting.js'); ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url('/assets/highcharts/themes/grid.js'); ?>"></script>
-		<script type="text/javascript">
-		jQuery(function(){
-		    new Highcharts.Chart({
-		        chart: {
-		            renderTo: 'chart',
-		            type: 'line',
-		        },
-		        title: {
-		            text: 'Statistik Penggunaan Anggaran Tahun <?php echo $thn_sekarang[0] ?>',
-		            x: -20
-		        },
-		        subtitle: {
-		            text: 'Empowerment',
-		            x: -20
-		        },
-		        xAxis: {
-		            categories: <?php echo json_encode($bulan); ?>,
-	              labels: {
-	                //enabled: false // disable labels
-	                step: 1
-	              }
-		        },
-		        yAxis: {
-		            title: {
-		                text: 'Jumlah Penggunaan'
-		            },
-	              min: 0
-		        },
-		        series: [
-	            {
-		            name: 'Penggunaan',
-		            data: <?php echo json_encode($total_penggunaan); ?>
-	            }
-	            ]
-	        });
-	      });
-		</script>
+		
+		<?php  if($view_isi == 'anggaran/v_home' || $view_isi == 'anggaran/v_rekap2') {
+					$this->load->view($chart);
+				}else {}?>
+		
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">

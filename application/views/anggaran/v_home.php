@@ -34,7 +34,7 @@
 											<div class="tab-content">
 												<div id="home" class="tab-pane fade in active">
 														<br><br>
-														<center><div style="width:95%" id="chart"></div></center>
+														<center><div style="width:95%" id="home_chart"></div></center>
 												</div>
 
 												<div id="messages" class="tab-pane fade">

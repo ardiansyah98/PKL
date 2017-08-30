@@ -32,7 +32,8 @@
 											<th style="width:10%">Sisa TW 3</th>
 											<th style="width:10%">Anggaran TW 4</th>
 											<th style="width:10%">Sisa TW 4</th>
-											<th style="width:8%"></th>
+											<th style="width:8%">Detail</th>
+											<th style="width:8%">Statistik</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -106,7 +107,7 @@
 
 
 										<tr>
-											<td><?=$i?></td>
+											<td><?=$j+1?></td>
 											<td><?=$year?></td>
 											<td><?=$tw1?></td>
 											<td><?=$tw1-$v1?></td>
@@ -171,11 +172,11 @@
 
 
 											</td>
+											<td><a href="<?php echo base_url('index.php/anggaran/statistik/').$year;?>">Show Statistik</a></td>
 										</tr>
 										 <?php }; ?>
 									</tbody>
 								</table>
-
 								<!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->
 						</div><!-- /.row -->
