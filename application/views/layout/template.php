@@ -4,7 +4,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
 		<title><?php echo $title.' - '.$subtitle;?></title>
-		<link rel="icon" type="image/png" href="http://localhost/jasamarga/assets/img/logo_sm.png" />
+		<link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/img/logo_sm.png" />
 
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -245,7 +245,7 @@
 			$(document).ready(function() {
 					var myTable = $('#table_karyawan').DataTable({
 						"sScrollX": "100%",
-						"sScrollXInner": "200%",
+						"sScrollXInner": "300%",
 
 			   			"columnDefs": [
         					{ "targets": [0,3,4,6,7,8,9,10,11], "searchable": false }
@@ -265,6 +265,21 @@
 					var myTable = $('.table_modal').DataTable({
 			   		});
 			 });
+
+			$(document).ready(function(){
+			    $("input[data-type='number']").keyup(function(event){
+			      // skip for arrow keys
+			      if(event.which >= 37 && event.which <= 40){
+			          event.preventDefault();
+			      }
+			      var $this = $(this);
+			      var num = $this.val().replace(/,/gi, "");
+			      var num2 = num.split(/(?=(?:\d{3})+$)/).join(",");
+			      console.log(num2);
+			      // the following line has been simplified. Revision history contains original.
+			      $this.val(num2);
+			  });
+			});
 		</script>
 
 		<script src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.min.js"></script>

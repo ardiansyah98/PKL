@@ -109,14 +109,18 @@
 										<tr>
 											<td><?=$j+1?></td>
 											<td><?=$year?></td>
-											<td><?=$tw1?></td>
-											<td><?=$tw1-$v1?></td>
-											<td><?=$tw2?></td>
-											<td><?=$tw2-$v2?></td>
-											<td><?=$tw3?></td>
-											<td><?=$tw3-$v3?></td>
-											<td><?=$tw4?></td>
-											<td><?=$tw4-$v4?></td>
+											<td><?=strrev(implode(',',str_split(strrev(strval($tw1)),3)));?></td>
+											<td><?=strrev(implode(',',str_split(strrev(strval($tw1-$v1)),3)));?></td>
+
+											<td><?=strrev(implode(',',str_split(strrev(strval($tw2)),3)));?></td>
+
+											<td><?=strrev(implode(',',str_split(strrev(strval($tw2-$v2)),3)));?></td>
+
+											<td><?=strrev(implode(',',str_split(strrev(strval($tw3)),3)));?></td>
+
+											<td><?=strrev(implode(',',str_split(strrev(strval($tw3-$v3)),3)));?></td>	
+											<td><?=strrev(implode(',',str_split(strrev(strval($tw4)),3)));?></td>
+											<td><?=strrev(implode(',',str_split(strrev(strval($tw4-$v4)),3)));?></td>
 											<td>
 												<a data-toggle="modal" data-target="#detail<?=$year?>" href="">Show Detail</a>
 
@@ -160,7 +164,8 @@
 																				echo '4'; 
 																		?></td>
 																		<td><?=$res->penggunaan;?></td>
-																		<td><?=$res->total;?></td>
+																		<td>
+																		<?=strrev(implode(',',str_split(strrev(strval($res->total)),3)));?></td>
 																	</tr>
 																	 <?php }; ?>
 																</tbody>

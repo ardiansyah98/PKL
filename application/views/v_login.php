@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/img/logo_sm.png" />
 	<title>JASAMARGA</title>
 	<style>
 		body {

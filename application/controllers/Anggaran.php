@@ -325,13 +325,37 @@ class Anggaran extends CI_Controller {
 	public function input_anggaran(){
 		$thn = date('Y');
 
-		$tw1 = $this->input->get("tw1");
-		$tw2 = $this->input->get("tw2");
-		$tw3 = $this->input->get("tw3");
-		$tw4 = $this->input->get("tw4");
+		$tw11 = $this->input->get("tw1");
+		$tw21 = $this->input->get("tw2");
+		$tw31 = $this->input->get("tw3");
+		$tw41 = $this->input->get("tw4");
+
+		$a = explode(",",$tw11);
+		$b = explode(",",$tw21);
+		$c = explode(",",$tw31);
+		$d = explode(",",$tw41);
+
+		$tw1= '';
+		$tw2= '';
+		$tw3= '';
+		$tw4= '';
+
+		for($i=0; $i<sizeof($a);$i++){
+			$tw1.=$a[$i];
+		}
+		for($i=0; $i<sizeof($b);$i++){
+			$tw2.=$a[$i];
+		}
+		for($i=0; $i<sizeof($c);$i++){
+			$tw3.=$a[$i];
+		}
+		for($i=0; $i<sizeof($d);$i++){
+			$tw4.=$a[$i];
+		}
+
 			
 
-		$this->M_anggaran->input_jatah($thn,$tw1, $tw2,$tw3,$tw4);
+		$this->M_anggaran->input_jatah($thn,intval($tw1), intval($tw2),intval($tw3),intval($tw4));
 		echo "<script>
 				alert('Input Berhasil');
 				window.location.href='http://localhost/jasamarga/index.php/anggaran/tahunan';
@@ -339,19 +363,69 @@ class Anggaran extends CI_Controller {
 	}
 
 	public function input_penggunaan(){
+		$m = date('m');
+		$x = 0;
+		if($m=='03' || $m=='02' || $m=='01'){
+			$x = '1';
+		}
+		else if($m=='04' || $m=='05' || $m=='06'){
+			$x ='2';
+		}
+		else if($m=='07' || $m=='08' || $m=='09'){
+			$x = '3';
+		}
+		else{
+			$x = '4';
+		}
+
+		$t = date('Y').''.$x;
+		$total = $this->M_anggaran->cek_jatah($t);
+		$penggunaan = $this->M_anggaran->cek_penggunaan($t);
+
+		$tot = 0;
+
+		foreach($total->result() as  $t){
+		$tot = $t->jatah;
+		}
+
+		$value = 0;
+		foreach($penggunaan->result() as $res){
+		$value = $value + $res->total;
+		}
+
+
+		$sisa = $tot - $value;
+
 
 		$deskripsi = $this->input->get("deskripsi");
-		$total = $this->input->get("total");
+		$tot = $this->input->get("total");
 		$tahun = $this->input->get("tahun");
 		$triwulan = $this->input->get("triwulan");
 		$tgl_tambah = $this->input->get("tgl_tambah");
 
-		$x = $tahun.''.$triwulan;
+		$a = explode(",",$tot);
+		$total='';
+		for($i=0; $i<sizeof($a);$i++){
+			$total.=$a[$i];
+		}
 
-		$this->M_anggaran->input_penggunaan($deskripsi,$total,$x,$tgl_tambah);
-		echo "<script>
-				alert('Berhasil menambahkan');
-				window.location.href='http://localhost/jasamarga/index.php/anggaran/tambah';
-			</script>";
+		$x = $tahun.''.$triwulan;
+		if($total>$sisa){
+			echo "<script>
+					alert('Gagal! Sisa anggaran tidak mencukupi');
+					window.location.href='http://localhost/jasamarga/index.php/anggaran/tambah';
+				</script>";
+		} else if($total==0){
+			echo "<script>
+					alert('Gagal! Total penggunaan tidak boleh nol');
+					window.location.href='http://localhost/jasamarga/index.php/anggaran/tambah';
+				</script>";
+		}else {
+			$this->M_anggaran->input_penggunaan($deskripsi,intval($total),$x,$tgl_tambah);
+			echo "<script>
+					alert('Berhasil menambahkan');
+					window.location.href='http://localhost/jasamarga/index.php/anggaran/tambah';
+				</script>";
+		}
 	}
 }

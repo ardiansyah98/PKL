@@ -132,9 +132,12 @@ class monitoring extends CI_Controller {
 					"position_name" =>  $rowData[0][8],
 					"org_name" =>  $rowData[0][9],
 					"kel_jabatan" =>  $rowData[0][10],
+					"unit_kerja" => $rowData[0][11],
+					"pendidikan_dimiliki" => $rowData[0][12],
+					"pendidikan_lengkap" => $rowData[0][13],
 				);
 
-				if($rowData[0][0] == NULL && $rowData[0][1] == NULL && $rowData[0][2] == NULL && $rowData[0][3] == NULL && $rowData[0][4] == NULL && $rowData[0][5] == NULL && $rowData[0][6] == NULL && $rowData[0][7] == NULL && $rowData[0][8] == NULL && $rowData[0][9] == NULL && $rowData[0][10] == NULL){
+				if($rowData[0][0] == NULL && $rowData[0][1] == NULL && $rowData[0][2] == NULL && $rowData[0][3] == NULL && $rowData[0][4] == NULL && $rowData[0][5] == NULL && $rowData[0][6] == NULL && $rowData[0][7] == NULL && $rowData[0][8] == NULL && $rowData[0][9] == NULL && $rowData[0][10] == NULL && $rowData[0][11] == NULL && $rowData[0][12] == NULL && $rowData[0][13] == NULL){
 					echo "<script>
 							alert('$banyakUpload data sukses di upload');
 							window.location.href='http://localhost/jasamarga/index.php/monitoring/upload';

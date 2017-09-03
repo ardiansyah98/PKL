@@ -25,15 +25,18 @@
 												<th style="width:5%">NPP</th>
 												<th style="width:13%">Nama</th>
 												<th style="width:5%">Grade</th>
-												<th style="width:7%">Tanggal Tugas</th>
+												<th style="width:5%">Tanggal Tugas</th>
 												<th style="width:8%">Job Name</th>
 												<th style="width:8%">Position Name</th>
 												<th style="width:8%">Organization Name</th>
 												<th style="width:8%">Kelompok Jabatan</th>
-												<th style="width:8%">Tempat Lahir</th>
-												<th style="width:7%">Tanggal Lahir</th>
+												<th style="width:5%">Unit Kerja</th>
+												<th style="width:5%">Pendidikan Dimiliki</th>
+												<th style="width:8%">Pendidikan Lengkap</th>
+												<th style="width:5%">Tempat Lahir</th>
+												<th style="width:5%">Tanggal Lahir</th>
 												<th style="width:5%">Jenis Kelamin</th>
-												<th style="width:6%">Aksi</th>
+												<th style="width:20%">Aksi</th>
 												
 											</tr>
 										</thead>
@@ -53,6 +56,9 @@
 											      		<td><?= $res->position_name;?></td>
 											      		<td><?= $res->org_name;?></td>
 											      		<td><?= $res->kel_jabatan;?></td>
+											      		<td><?= $res->unit_kerja;?></td>
+											      		<td><?= $res->pendidikan_dimiliki;?></td>
+											      		<td><?= $res->pendidikan_lengkap;?></td>
 											      		<td><?= $res->tempat_lahir;?></td>
 											      		<td><?= $res->tgl_lahir;?></td>
 											      		<td>
@@ -148,6 +154,21 @@
 		         			<td >Kelompok Jabatan</td>
 		         			<td >:</td>
 		         			<td ><input name="edit_kel_jabatan" type="text" style="width:100%" value=<?= $res->kel_jabatan ?> ></td>
+		         		</tr>
+		         		<tr>
+		         			<td >Unit Kerja</td>
+		         			<td >:</td>
+		         			<td ><input name="edit_kel_jabatan" type="text" style="width:100%" value=<?= $res->unit_kerja ?> ></td>
+		         		</tr>
+		         		<tr>
+		         			<td >Pendidikan Dimiliki</td>
+		         			<td >:</td>
+		         			<td ><input name="edit_kel_jabatan" type="text" style="width:100%" value=<?= $res->pendidikan_dimiliki ?> ></td>
+		         		</tr>
+		         		<tr>
+		         			<td >Pendidikan Lengkap</td>
+		         			<td >:</td>
+		         			<td ><input name="edit_kel_jabatan" type="text" style="width:100%" value=<?= $res->pendidikan_lengkap ?> ></td>
 		         		</tr>
 		         		<tr>
 		         			<td >Tempat lahir</td>

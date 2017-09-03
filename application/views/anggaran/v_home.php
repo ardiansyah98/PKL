@@ -47,7 +47,7 @@
 										<tr>
 											<td style="width:15%">Triwulan 1 </td>
 											<td style="width:2%">:</td>
-											<td style="width:40%"><input style="width:100%" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw1" 
+											<td style="width:40%"><input style="width:100%" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw1" 
 												<?php 
 													$t1 = date('Y').'1';
 													$total = $this->M_anggaran->cek_jatah($t1);
@@ -72,14 +72,14 @@
 													$total = $tot - $value;
 
 													echo 'value=';
-													echo $total;
+													echo strrev(implode(',',str_split(strrev(strval($total)),3)));
 												?> readonly></td>
 												<td><a href="" data-toggle="modal" data-target="#modal_tw1" style="margin-left:2%;">Show Detail</a></td>
 										</tr>
 										<tr>
 											<td style="width:15%">Triwulan 2 </td>
 											<td style="width:2%">:</td>
-											<td style="width:40%"><input style="width:100%" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw2" <?php 
+											<td style="width:40%"><input style="width:100%" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw2" <?php 
 													$t1 = date('Y').'2';
 													$total = $this->M_anggaran->cek_jatah($t1);
 													$penggunaan = $this->M_anggaran->cek_penggunaan($t1);
@@ -103,14 +103,14 @@
 													$total = $tot - $value;
 													
 													echo 'value=';
-													echo $total;
+													echo strrev(implode(',',str_split(strrev(strval($total)),3)));
 												?> readonly></td>
 												<td><a href="" data-toggle="modal" data-target="#modal_tw2" style="margin-left:2%;">Show Detail</a></td>
 										</tr>
 										<tr>
 											<td style="width:15%">Triwulan 3 </td>
 											<td style="width:2%">:</td>
-											<td style="width:40%"><input style="width:100%" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw3" <?php 
+											<td style="width:40%"><input style="width:100%" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw3" <?php 
 													$t1 = date('Y').'3';
 													$total = $this->M_anggaran->cek_jatah($t1);
 													$penggunaan = $this->M_anggaran->cek_penggunaan($t1);
@@ -134,14 +134,14 @@
 													$total = $tot - $value;
 													
 													echo 'value=';
-													echo $total;
+													echo strrev(implode(',',str_split(strrev(strval($total)),3)));
 												?> readonly></td>
 												<td><a href="" data-toggle="modal" data-target="#modal_tw3" style="margin-left:2%;">Show Detail</a></td>
 										</tr>
 										<tr>
 											<td style="width:15%">Triwulan 4 </td>
 											<td style="width:2%">:</td>
-											<td style="width:40%"><input style="width:100%" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw4" <?php 
+											<td style="width:40%"><input style="width:100%" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw4" <?php 
 													$t1 = date('Y').'4';
 													$total = $this->M_anggaran->cek_jatah($t1);
 													$penggunaan = $this->M_anggaran->cek_penggunaan($t1);
@@ -165,7 +165,7 @@
 													$total = $tot - $value;
 													
 													echo 'value=';
-													echo $total;
+													echo strrev(implode(',',str_split(strrev(strval($total)),3)));
 												?> readonly></td>
 												<td><a href="" data-toggle="modal" data-target="#modal_tw4" style="margin-left:2%;">Show Detail</a></td>
 										</tr>
@@ -200,7 +200,7 @@
 						<td><?=$i?></td>
 						<td><?=$res->waktu?></td>
 						<td><?=$res->penggunaan;?></td>
-						<td><?=$res->total;?></td>
+						<td><?=strrev(implode(',',str_split(strrev(strval($res->total)),3)));?></td>
 					</tr>
 					 <?php }; ?>
 				</tbody>
@@ -240,7 +240,7 @@
 						<td><?=$i?></td>
 						<td><?=$res->waktu?></td>
 						<td><?=$res->penggunaan;?></td>
-						<td><?=$res->total;?></td>
+						<td><?=strrev(implode(',',str_split(strrev(strval($res->total)),3)));?></td>
 					</tr>
 					 <?php }; ?>
 				</tbody>
@@ -279,7 +279,7 @@
 						<td><?=$i?></td>
 						<td><?=$res->waktu?></td>
 						<td><?=$res->penggunaan;?></td>
-						<td><?=$res->total;?></td>
+						<td><?=strrev(implode(',',str_split(strrev(strval($res->total)),3)));?></td>
 					</tr>
 					 <?php }; ?>
 				</tbody>
@@ -319,7 +319,7 @@
 						<td><?=$i?></td>
 						<td><?=$res->waktu?></td>
 						<td><?=$res->penggunaan;?></td>
-						<td><?=$res->total;?></td>
+						<td><?=strrev(implode(',',str_split(strrev(strval($res->total)),3)));?></td>
 					</tr>
 					 <?php }; ?>
 				</tbody>

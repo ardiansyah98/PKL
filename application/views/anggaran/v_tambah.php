@@ -70,7 +70,9 @@
 									
 									$sisa = $tot - $value;
 									
-									echo $sisa;
+									echo strrev(implode(',',str_split(strrev(strval($sisa)),3)));
+
+	
 
 								?>
 								</div>
@@ -84,7 +86,7 @@
 										</tr>
 										<tr>
 											<td style="width:60%" ><input required style="width:97%" type="text" name="deskripsi"></td>
-											<td style="width:20%" ><input required style="width:97%" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="total" ></td>
+											<td style="width:20%" ><input required style="width:97%" type="text" data-type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="total" ></td>
 											<td><input type="hidden" name='tgl_tambah' value=<?=date('Y-m-d')?>></td>
 											<td><input type="hidden" name='tahun' value=<?=date('Y')?>></td>
 											<td><input type="hidden" name='triwulan' value=

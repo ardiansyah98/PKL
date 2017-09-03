@@ -25,14 +25,15 @@
 										<tr>
 											<td style="width:7%">Triwulan 1 </td>
 											<td style="width:1%">:</td>
-											<td style="width:52%"><input type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw1" 
+											<td style="width:52%"><input type="text" data-type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw1" 
 												<?php 
 													$t1 = date('Y').'1';
 													$result = $this->M_anggaran->cek_jatah($t1);
 													if($result->num_rows() > 0){
 														foreach($result->result() as $res){
 															echo 'value=';
-															echo $res->jatah;
+															echo 
+															strrev(implode(',',str_split(strrev(strval($res->jatah)),3)));
 															echo ' readonly';	
 														}
 													} else  {
@@ -44,13 +45,13 @@
 											<td>Triwulan 2 </td>
 											<td>:</td>
 											<td>
-									<input type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw2" <?php 
+									<input type="text" data-type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw2" <?php 
 													$t2 = date('Y').'2';
 													$result = $this->M_anggaran->cek_jatah($t2);
 													if($result->num_rows() > 0){
 														foreach($result->result() as $res){
 															echo 'value=';
-															echo $res->jatah;
+															echo strrev(implode(',',str_split(strrev(strval($res->jatah)),3)));
 															echo ' readonly';	
 														}
 													} else  {
@@ -62,13 +63,13 @@
 											<td>Triwulan 3 </td>
 											<td>:</td>
 											<td>
-									<input type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw3" <?php 
+									<input type="text" data-type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw3" <?php 
 													$t3 = date('Y').'3';
 													$result = $this->M_anggaran->cek_jatah($t3);
 													if($result->num_rows() > 0){
 														foreach($result->result() as $res){
 															echo 'value=';
-															echo $res->jatah;
+															echo strrev(implode(',',str_split(strrev(strval($res->jatah)),3)));
 															echo ' readonly';	
 														}
 													} else  {
@@ -80,13 +81,13 @@
 											<td>Triwulan 4 </td>
 											<td>:</td>
 											<td>
-									<input type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw4" <?php 
+									<input type="text" data-type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="tw4" <?php 
 													$t4 = date('Y').'4';
 													$result = $this->M_anggaran->cek_jatah($t4);
 													if($result->num_rows() > 0){
 														foreach($result->result() as $res){
 															echo 'value=';
-															echo $res->jatah;
+															echo strrev(implode(',',str_split(strrev(strval($res->jatah)),3)));
 															echo ' readonly';	
 														}
 													} else  {
