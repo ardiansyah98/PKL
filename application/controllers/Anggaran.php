@@ -428,4 +428,75 @@ class Anggaran extends CI_Controller {
 				</script>";
 		}
 	}
+
+	public function edit_triwulan1(){
+		$b = $this->input->post("tw1_baru");	
+		$a = explode(",",$b);
+
+		$baru='';
+		for($i=0; $i<sizeof($a);$i++){
+			$baru.=$a[$i];
+		}
+
+		$this->M_anggaran->update_triwulan(1,$baru);
+
+		echo "<script>
+					alert('Berhasil');
+					window.location.href='http://localhost/jasamarga/index.php/anggaran/tahunan';
+				</script>";
+	}
+
+	public function edit_triwulan2(){
+		$b = $this->input->post("tw2_baru");	
+		$a = explode(",",$b);
+
+		$baru='';
+		for($i=0; $i<sizeof($a);$i++){
+			$baru.=$a[$i];
+		}
+
+		$this->M_anggaran->update_triwulan(2,$baru);
+
+		echo "<script>
+					alert('Berhasil');
+					window.location.href='http://localhost/jasamarga/index.php/anggaran/tahunan';
+				</script>";
+
+	}
+
+	public function edit_triwulan3(){
+		$b = $this->input->post("tw3_baru");	
+		$a = explode(",",$b);
+
+		$baru='';
+		for($i=0; $i<sizeof($a);$i++){
+			$baru.=$a[$i];
+		}
+
+		$this->M_anggaran->update_triwulan(3,$baru);
+
+		echo "<script>
+					alert('Berhasil');
+					window.location.href='http://localhost/jasamarga/index.php/anggaran/tahunan';
+				</script>";
+
+	}
+
+	public function edit_triwulan4(){
+		$b = $this->input->post("tw4_baru");	
+		$a = explode(",",$b);
+
+		$baru='';
+		for($i=0; $i<sizeof($a);$i++){
+			$baru.=$a[$i];
+		}
+
+		$this->M_anggaran->update_triwulan(4,$baru);
+
+		echo "<script>
+					alert('Berhasil');
+					window.location.href='http://localhost/jasamarga/index.php/anggaran/tahunan';
+				</script>";
+
+	}
 }

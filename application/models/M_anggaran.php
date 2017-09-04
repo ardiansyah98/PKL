@@ -39,4 +39,16 @@ class M_Anggaran extends CI_Model {
 		$query = "SELECT * FROM tbl_penggunaan_anggaran WHERE waktu LIKE '%$where%'";
 		return $this->db->query($query);
 	}
+
+	function update_triwulan($tw,$total){
+		$y = date('Y');
+		$date = $y.''.$tw;
+
+		$data = array(
+		 	'jatah' => $total
+		);
+
+		$this->db->where('tahun_tw', $date);
+		return $this->db->update('tbl_anggaran', $data);
+	}
 }
